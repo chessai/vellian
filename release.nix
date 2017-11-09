@@ -5,6 +5,7 @@ let
 
   # Jailbreak these packages
   doJailbreakPackages = [
+    "star"
   ];
 
   # Disable haddocks for these packages

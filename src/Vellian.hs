@@ -1,14 +1,14 @@
-{-# LANGUAGE BangPatterns #-}
-{-# LANGUAGE DeriveFunctor #-}
-{-# LANGUAGE DeriveFoldable #-}
+{-# LANGUAGE BangPatterns      #-}
+{-# LANGUAGE DeriveFoldable    #-}
+{-# LANGUAGE DeriveFunctor     #-}
 {-# LANGUAGE DeriveTraversable #-}
 
 module Vellian
  (
  ) where
 
-import Control.Monad.Zip
-import Numeric.Natural
+import           Control.Monad.Zip
+import           Numeric.Natural
 
 class Num a => IntegralDomain a
 
@@ -78,7 +78,7 @@ getPhi (Fib a _) = a
 
 -- | Compute the nth Fibonacci number in O(log n)
 fib :: (IntegralDomain a) => Integer -> a
-fib n 
+fib n
     | n >= 0 = getPhi (Fib 1 0 ^ n)
     | otherwise = getPhi (Fib 1 (-1) ^ negate n)
 
@@ -98,7 +98,7 @@ fib n
 --   b and a, where b is the size of one of the two branches we want to cut a into, and a-b
 --   is the other, and we know the predicate holds at a.
 search :: (Natural -> Bool) -> Natural
-search p 
+search p
   | p 0 = 0
   | otherwise = bound 0 1
   where
